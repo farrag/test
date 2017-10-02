@@ -63,7 +63,7 @@ mkdir "${TEMP_DIRECTORY}"
 fi
 
 cd $BUDDYBUILD_PRODUCT_DIR
-find . -name "*.dSYM" -print | zip /tmp/dsyms.zip -@
+find . -name "*.dSYM" -print | zip -r /tmp/dsyms.zip -@
 
 # Upload dSYM
 echo "Instabug: Uploading dSYM file..."
