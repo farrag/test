@@ -68,7 +68,7 @@ find . -name "*.dSYM" -print | zip /tmp/dsyms.zip -@
 # Upload dSYM
 echo "Instabug: Uploading dSYM file..."
 ENDPOINT="https://api.instabug.com/api/sdk/v3/symbols_files"
-STATUS=$(curl "${ENDPOINT}" --write-out %{http_code} --silent --output /dev/null -F symbols_file=@"/tmp/dsyms.zip" -F application_token="${APP_TOKEN}")
+STATUS=$(curl "${ENDPOINT}" --write-out %{http_code} --silent --output /dev/null -F symbols_file="@/tmp/dsyms.zip" -F application_token="${APP_TOKEN}")
 if [ $STATUS -ne 200 ]; then
 echo "Instabug: err: dSYM archive not succesfully uploaded."
 echo "Instabug: deleting temporary dSYM archive..."
