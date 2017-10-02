@@ -21,7 +21,10 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[[NSArray alloc] init] objectAtIndex:100];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[[NSArray alloc] init] objectAtIndex:234];
 }
 
 - (void)didReceiveMemoryWarning {
