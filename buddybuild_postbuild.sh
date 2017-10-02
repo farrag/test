@@ -20,8 +20,6 @@
 
 echo "Instabug: Test"
 
-if [[ "$BUDDYBUILD_BRANCH" =~ "release" ]]; then
-
 echo "Instabug: Started uploading dSYM"
 
 # Check for simulator builds
@@ -76,5 +74,4 @@ echo "Instabug: err: dSYM archive not succesfully uploaded."
 echo "Instabug: deleting temporary dSYM archive..."
 rm -f "${DSYM_PATH_ZIP}"
 exit 0
-fi
 fi
