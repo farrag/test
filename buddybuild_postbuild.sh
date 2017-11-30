@@ -19,7 +19,6 @@
 # --- INVOCATION SCRIPT END ---
 
 echo "Instabug: Test"
-exit 0
 
 echo "Instabug: Started uploading dSYM"
 
