@@ -5,7 +5,7 @@ target 'testApp' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-pod 'Instabug'
+pod 'Instabug', :git => 'https://github.com/Instabug/Instabug-iOS.git', :branch => 'custom/BuddyBuild_upload_DSYMs'
   # Pods for testApp
 
   target 'testAppTests' do
