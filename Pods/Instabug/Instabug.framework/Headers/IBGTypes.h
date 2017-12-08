@@ -36,7 +36,9 @@ extern NSString * const kIBGAddImageFromGalleryStringName;
 extern NSString * const kIBGAddExtraScreenshotStringName;
 extern NSString * const kIBGAudioRecordingPermissionDeniedTitleStringName;
 extern NSString * const kIBGAudioRecordingPermissionDeniedMessageStringName;
+extern NSString * const kIBGScreenRecordingPermissionDeniedMessageStringName;
 extern NSString * const kIBGMicrophonePermissionAlertSettingsButtonTitleStringName;
+extern NSString * const kIBGMicrophonePermissionAlertLaterButtonTitleStringName;
 extern NSString * const kIBGChatsTitleStringName;
 extern NSString * const kIBGTeamStringName;
 extern NSString * const kIBGRecordingMessageToHoldTextStringName;
@@ -57,6 +59,12 @@ extern NSString * const kIBGSurveyEnterYourAnswerTextPlaceholder;
 extern NSString * const kIBGSurveyNoAnswerTitle;
 extern NSString * const kIBGSurveyNoAnswerMessage;
 extern NSString * const kIBGSurveySubmitTitle;
+extern NSString * const kIBGVideoPressRecordTitle;
+extern NSString * const kIBGLowDiskStorageTitle;
+extern NSString * const kIBGLowDiskStorageMessage;
+extern NSString * const kIBGCollectingDataText;
+extern NSString * const kIBGExtraFieldIsRequiredText;
+extern NSString * const kIBGExtraFieldMissingDataText;
 
 /// -----------
 /// @name Enums
@@ -161,6 +169,7 @@ typedef NS_ENUM(NSInteger, IBGLocale) {
     IBGLocaleItalian,
     IBGLocaleJapanese,
     IBGLocaleKorean,
+    IBGLocaleNorwegian,
     IBGLocalePolish,
     IBGLocalePortugese,
     IBGLocalePortugueseBrazil,
@@ -169,6 +178,20 @@ typedef NS_ENUM(NSInteger, IBGLocale) {
     IBGLocaleSpanish,
     IBGLocaleSwedish,
     IBGLocaleTurkish
+};
+
+/**
+ Verbosity level of the SDK debug logs. This has nothing to do with IBGLog, and only affect the logs used to debug the
+ SDK itself.
+ 
+ Defaults to IBGSDKDebugLogsLevelError. Make sure you only use IBGSDKDebugLogsLevelError or IBGSDKDebugLogsLevelNone in
+ production builds.
+ */
+typedef NS_ENUM(NSInteger, IBGSDKDebugLogsLevel) {
+    IBGSDKDebugLogsLevelVerbose,
+    IBGSDKDebugLogsLevelDebug,
+    IBGSDKDebugLogsLevelError,
+    IBGSDKDebugLogsLevelNone
 };
 
 /**
@@ -197,7 +220,9 @@ typedef NS_ENUM(NSInteger, IBGString) {
     IBGStringAddExtraScreenshot,
     IBGStringAudioRecordingPermissionDeniedTitle,
     IBGStringAudioRecordingPermissionDeniedMessage,
+    IBGStringScreenRecordingPermissionDeniedMessage,
     IBGStringMicrophonePermissionAlertSettingsButtonTitle,
+    IBGStringMicrophonePermissionAlertLaterButtonTitle,
     IBGStringChatsHeaderTitle,
     IBGStringTeam,
     IBGStringRecordingMessageToHoldText,
@@ -213,7 +238,35 @@ typedef NS_ENUM(NSInteger, IBGString) {
     IBGStringScreenRecording,
     IBGStringImage,
     IBGStringSurveyEnterYourAnswerPlaceholder,
-    kIBGStringSurveyNoAnswerTitle,
-    kIBGStringSurveyNoAnswerMessage,
-    kIBGStringSurveySubmitTitle
+    IBGStringSurveyNoAnswerTitle,
+    IBGStringSurveyNoAnswerMessage,
+    IBGStringSurveySubmitTitle,
+    IBGStringVideoPressRecordTitle,
+    IBGStringLowDiskStorageTitle,
+    IBGStringLowDiskStorageMessage,
+    IBGStringCollectingDataText,
+    IBGStringExtraFieldIsRequiredText,
+    IBGStringExtraFieldMissingDataText
 };
+
+/**
+ The prompt option selected in Instabug prompt.
+ */
+typedef NS_ENUM(NSInteger, IBGPromptOption) {
+    IBGPromptOptionChat,
+    IBGPromptOptionBug,
+    IBGPromptOptionFeedback
+};
+
+/**
+ The Conosle Log Level.
+ */
+typedef NS_ENUM(NSInteger, IBGLogLevel) {
+    IBGLogLevelDefault,
+    IBGLogLevelTrace,
+    IBGLogLevelInfo,
+    IBGLogLevelWarning,
+    IBGLogLevelError,
+    IBGLogLevelFatal
+};
+

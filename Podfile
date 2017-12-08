@@ -5,7 +5,7 @@ target 'testApp' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-pod 'Instabug', '~> 6.2'
+pod 'Instabug'
   # Pods for testApp
 
   target 'testAppTests' do
